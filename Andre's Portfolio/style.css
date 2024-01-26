@@ -792,6 +792,7 @@ i:hover {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a p,
@@ -809,7 +810,8 @@ a h5 {
 
 a h5:hover,
 a p:hover,
-a h6:hover {
+a h6:hover,
+p a:hover {
   color: lightslategrey;
   text-decoration: none;
 }
