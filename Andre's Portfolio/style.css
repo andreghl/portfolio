@@ -832,3 +832,13 @@ ul {
   -moz-columns: 3;
 
 }
+
+.box {
+  height: auto;
+  width: auto;
+  background-color: auto;
+}
+
+.box:hover h5 {
+  font-size: larger;
+}
