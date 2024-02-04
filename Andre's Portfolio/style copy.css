@@ -1,0 +1,142 @@
+/* Portfolio */
+
+/* Navigation Bar */
+
+.navbar {
+  position: absolute;
+  overflow: hidden;
+  /* */
+  width: 100%;
+  height: 100px;
+  left: 0;
+
+  padding-top: 20px;
+
+  /* */
+  font-size: 30px;
+  font-style: bold;
+}
+
+.navbar a {
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar a:hover {
+  background-color: whitesmoke;
+  font-size: larger;
+}
+
+.menu {
+  /* Display menu on horizontal line */
+  display: flex;
+}
+
+/* General Settings */
+
+:root {
+  /*
+  background-image: url(Assets/logo.svg);
+  /* Make Background image transparent.
+  background: rgb(204, 204, 204);
+  /* Fallback for older browsers without RGBA-support * /
+  background: rgba(204, 204, 204, 0.5);
+  */
+  background-color: white;
+  font-family: "";
+}
+
+body {
+  font-family: 'Latin Modern';
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 30px;
+  width: 60%;
+  margin: auto;
+  text-align: justify;
+  font-size: 50px;
+}
+
+p {
+  font-size: 20px;
+}
+
+img {
+  width: 300px;
+}
+
+/* Body */
+
+.empty {
+  /* Create Empty Box to prevent 
+  navbar & content from overlapping*/
+  height: 150px;
+  width: 100%;
+}
+
+.empty-bottom {
+  /* Create Empty Box to prevent 
+  navbar & content from overlapping*/
+  height: 100px;
+  width: 100%;
+}
+
+.container {
+  height: max-content;
+  width: 80%;
+  margin: auto;
+  left: 0;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.left {
+  margin: 0;
+}
+
+.right {
+  margin: 0;
+}
+
+/* Clear floats after the columns */
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Footer */
+
+footer {
+  height: 100px;
+  padding-bottom: 30px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Social Media Profiles */
+
+i,
+footer a {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+i:hover {
+  color: lightslategrey;
+}
