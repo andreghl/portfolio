@@ -188,6 +188,10 @@ footer a:hover {
   color: black;
 }
 
+.project-title:hover {
+  font-size: 2.2rem;
+}
+
 .project-details {
   font-size: 15px;
   line-height: 1.5;
