@@ -61,6 +61,7 @@ h3 {
   margin: auto;
   text-align: left;
   font-size: 40px;
+  font-family: serif;
 }
 
 p {
@@ -162,6 +163,13 @@ footer a:hover {
   margin: auto;
 }
 
+.project-container:hover {
+  .project-title {
+    font-size: 2.2rem;
+  }
+
+}
+
 .project {
   margin: 30px;
 }
@@ -170,11 +178,6 @@ footer a:hover {
   position: relative;
   grid-column: 1 / 7;
   grid-row: 1 / -1;
-}
-
-@include tablet {
-  grid-column: 1 / -1;
-  padding: 40px;
 }
 
 .project-label {
@@ -188,9 +191,10 @@ footer a:hover {
   color: black;
 }
 
+/*
 .project-title:hover {
   font-size: 2.2rem;
-}
+} */
 
 .project-details {
   font-size: 15px;
