@@ -95,26 +95,9 @@ img {
   left: 0;
 }
 
-.column {
-  float: left;
-  width: 50%;
+.line {
+  width: 100px;
 }
-
-.left {
-  margin: 0;
-}
-
-.right {
-  margin: 0;
-}
-
-/* Clear floats after the columns */
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 
 /* Footer */
 
