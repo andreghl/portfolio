@@ -119,6 +119,7 @@ a {
   columns: 3;
   -webkit-columns: 3;
   -moz-columns: 3;
+  font-size: 20px;
 }
 
 .content {
