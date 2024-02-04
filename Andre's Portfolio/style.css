@@ -101,9 +101,12 @@ a {
   left: 0;
 }
 
-.smaller:hover {
-  font-size: 30px;
-  font-family: monospace;
+.container:hover {
+  .smaller {
+    font-size: 30px;
+    font-family: monospace;
+  }
+
 }
 
 /* About Page*/
@@ -190,11 +193,6 @@ footer a:hover {
   margin: 10px 0 30px;
   color: black;
 }
-
-/*
-.project-title:hover {
-  font-size: 2.2rem;
-} */
 
 .project-details {
   font-size: 15px;
