@@ -120,6 +120,11 @@ a {
   -webkit-columns: 3;
   -moz-columns: 3;
   font-size: 20px;
+
+}
+
+.skills li {
+  list-style-type: none;
 }
 
 .content {
