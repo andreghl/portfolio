@@ -29,7 +29,7 @@
 
 .navbar a:hover {
   background-color: whitesmoke;
-  font-size: larger;
+  /*font-size: larger;*/
 }
 
 .menu {
