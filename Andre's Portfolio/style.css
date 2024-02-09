@@ -174,9 +174,8 @@ footer a:hover {
 
 .project-container:hover {
   .project-title {
-    font-size: 2.2rem;
+    color: lightslategray;
   }
-
 }
 
 .project {
