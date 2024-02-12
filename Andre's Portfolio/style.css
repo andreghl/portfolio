@@ -200,3 +200,13 @@ footer a:hover {
   line-height: 1.5;
   color: #36454F;
 }
+
+/* Phone Screens */
+
+@media screen {
+  max-width: 600px;
+
+  :root {
+    font-size: 10px;
+  }
+}
