@@ -218,11 +218,11 @@ footer a:hover {
   }
 
   h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .skills li {
@@ -250,5 +250,9 @@ footer a:hover {
     width: 90%;
     margin: auto;
     left: 0;
+  }
+
+  .content {
+    width: 60%;
   }
 }
