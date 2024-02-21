@@ -194,7 +194,7 @@ footer a:hover {
 
 /* Phone Screens */
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 480px) {
   .navbar {
     position: absolute;
     overflow: hidden;
