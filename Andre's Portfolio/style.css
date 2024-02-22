@@ -238,6 +238,12 @@ footer a:hover {
     font-size: 8px;
   }
 
+  .project-container {
+    width: 80%;
+    margin: auto;
+  }
+
+
   .empty-bottom {
     /* Create Empty Box to prevent 
     navbar & content from overlapping*/
