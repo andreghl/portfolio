@@ -272,5 +272,8 @@ footer a:hover {
     -webkit-columns: 2;
     -moz-columns: 2;
 
+    /**/
+    width: auto;
+    margin: auto;
   }
 }
