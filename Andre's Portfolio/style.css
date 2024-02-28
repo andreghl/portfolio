@@ -230,6 +230,10 @@ footer a:hover {
     font-size: 10px;
   }
 
+  .intro {
+    width: 100%;
+  }
+
   .project-title {
     font-size: 15px;
     margin: 10px 0 10px;
@@ -243,7 +247,6 @@ footer a:hover {
     width: 90%;
     margin: auto;
   }
-
 
   .empty-bottom {
     /* Create Empty Box to prevent 
