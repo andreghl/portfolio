@@ -10,17 +10,18 @@
   height: 100px;
   left: 0;
 
-  padding-top: 20px;
-
+  padding-top: 10px;
+  margin-left: 10%;
+  margin-top: 2%;
   /* */
-  font-size: 30px;
+  font-size: 40px;
   font-style: bold;
 }
 
 .navbar a {
   color: black;
-  padding: 16px;
   text-decoration: none;
+  padding: 10px;
 }
 
 .navbar ul {
@@ -29,12 +30,38 @@
 
 .navbar a:hover {
   background-color: whitesmoke;
+
   /*font-size: larger;*/
 }
 
-.menu {
-  /* Display menu on horizontal line */
-  display: flex;
+
+/* Homepage */
+
+h1 {
+  margin-left: 30%;
+  margin-top: 10%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.options {
+  margin-left: 30%;
+}
+
+.options li {
+  font-size: 30px;
+}
+
+.sep {
+  width: 50%;
+  margin: auto;
+}
+
+.sep hr {
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 /* General Settings */
@@ -187,14 +214,14 @@ footer a:hover {
 }
 
 .project-details {
-  font-size: 10px;
+  font-size: 8px;
   line-height: 1.5;
   color: #36454F;
 }
 
 /* Phone Screens */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 620px) {
   .navbar {
     position: absolute;
     overflow: hidden;
@@ -216,6 +243,16 @@ footer a:hover {
     navbar & content from overlapping*/
     height: 120px;
     width: 100%;
+  }
+
+
+  h1 {
+    margin-left: 20%;
+    margin-top: 10%;
+  }
+
+  .options {
+    margin-left: 30%;
   }
 
   h3 {
