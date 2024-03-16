@@ -134,7 +134,7 @@ a {
 .empty {
   /* Create Empty Box to prevent 
   navbar & content from overlapping*/
-  height: 180px;
+  height: 100px;
   width: 100%;
 }
 
