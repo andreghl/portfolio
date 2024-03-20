@@ -170,7 +170,6 @@ a {
   -webkit-columns: 3;
   -moz-columns: 3;
   font-size: 20px;
-
 }
 
 .skills li {
@@ -218,7 +217,7 @@ footer a:hover {
 /* Project Page */
 
 .project-container {
-  max-width: 80%;
+  max-width: 70%;
   margin: auto;
 }
 
@@ -229,13 +228,7 @@ footer a:hover {
 }
 
 .project {
-  margin: 30px;
-}
-
-.project-content {
-  position: relative;
-  grid-column: 1 / 7;
-  grid-row: 1 / -1;
+  margin: 20px;
 }
 
 .project-label {
