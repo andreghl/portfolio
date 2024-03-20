@@ -249,7 +249,7 @@ footer a:hover {
   color: black;
 }
 
-.project-details {
+.project-details p {
   font-size: 8px;
   line-height: 1.5;
   color: #36454F;
@@ -281,14 +281,13 @@ footer a:hover {
     width: 100%;
   }
 
-
   h1 {
     margin-left: 10%;
     margin-top: 10%;
   }
 
   .options {
-    margin-left: 30%;
+    margin-left: 20%;
   }
 
   h3 {
