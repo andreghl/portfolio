@@ -4,10 +4,6 @@ author: "Andre-Ignace Ghonda Lukoki"
 date: "March 20th, 2024"
 output:
   tufte::tufte_html: default
-  html_document:
-    df_print: paged
-  tufte::tufte_book: default
-subtitle: Using R
 ---
 
 ```{r setup, include=FALSE}
@@ -81,15 +77,23 @@ regress <- function(y, x) {
   
   # Calculating Beta 
   
-  numerator <- sum((x - meanX) * (y - meanY))
-  denominator <- sum((x - meanX) ^ 2) 
+  Covariance <- sum((x - meanX) * (y - meanY))
+  Variance <- sum((x - meanX) ^ 2) 
   
   # Calculating Estimators 
   
-  slope <- numerator / denominator
+  slope <- Covariance / Variance
   intercept <- meanY - slope * meanX 
   
-  return(list("intercept" = intercept, "slope" = slope))
+ # Print Output to console
+  
+  cat("Regression: \n")
+  cat("Method: Ordinary Least Squares \n")
+  cat("___________________________________ \n")
+  cat("          ", "Estimate",  "\n")
+  cat("Intercept:", intercept, "\n")
+  cat("    Slope:", slope, "\n")
+  cat("----------------------------------- \n")
 
 }
 
@@ -109,5 +113,7 @@ test <- lm(y~x)
 summary(test)
 
 ``` 
+
+From the output, it is clear that both functions compute the same estimates for $\alpha$ and $\beta$ and thus we have managed to build a very simple regression function.
 
 
