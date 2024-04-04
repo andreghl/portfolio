@@ -68,7 +68,7 @@ regress <- function(y, x) {
   dataset <- data.frame(y, x)
   
   # Sample Size
-  n <- nrow(dataset)
+  n <- length(dataset)
   
   # Find mean of data
   
