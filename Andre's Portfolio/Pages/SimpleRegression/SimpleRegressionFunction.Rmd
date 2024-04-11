@@ -9,6 +9,9 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
+setwd("~/Code/Portfolio/Portfolio/Andre's Portfolio/Pages/SimpleRegression")
+rm(list = ls())
+
 # To hide output, include 'results = "hide"'
 ```
 
@@ -26,9 +29,13 @@ set.seed(2024)
 
 # Sample Creation
 
-y <- sample(1:20, 30, replace = TRUE)
+x <- rnorm(n = 300, mean = 3, sd = 2)
 
-x <- sample(1:20, 30, replace = TRUE)
+y <- 2*x + rnorm(n = 300, mean = 1, sd = 3)
+
+# Plot
+
+plot(x, y) # To check if the relation between the two variables appears normal
 
 ```
 
@@ -63,12 +70,12 @@ After computing both estimates, the function ```regress()``` returns them in a l
 
 ```{r Regression function, echo = TRUE}
 
-regress <- function(y, x) {
+regress <- function(y, x, truebeta = 0, alpha = 0.05) {
   
   dataset <- data.frame(y, x)
   
   # Sample Size
-  n <- length(dataset)
+  n <- nrow(dataset)
   
   # Find mean of data
   
@@ -85,16 +92,60 @@ regress <- function(y, x) {
   slope <- Covariance / Variance
   intercept <- meanY - slope * meanX 
   
+  # Calculate error term
+  
+  error <- rep(0, n)
+  
+  for (i in 1:n){
+    
+    error[i] <- dataset[i, 1] - intercept -  slope * dataset[i, 2]
+  }
+  
+  # SE of Slope
+  
+  var.slope <- sum(error^2) / ((n - 2) * Variance)
+  
+  se.slope <- sqrt(var.slope)
+  
+  # T(X) of Slope
+  
+  T.slope <- (slope - truebeta) / se.slope
+  
+  # P-value of T(X)
+  
+  p.slope <- pt(T.slope, df = n - 1, lower.tail = FALSE)
+  
+  # Confidence Interval for slope
+  
+  p <- alpha / 2
+  level <- 1 - alpha
+  
+    # Bounds
+  
+  Lower <- slope - qt(p, n - 1, lower.tail = FALSE) * se.slope  
+  Upper <- slope + qt(p, n - 1, lower.tail = FALSE) * se.slope 
+  
  # Print Output to console
   
   cat("Regression: \n")
   cat("Method: Ordinary Least Squares \n")
   cat("___________________________________ \n")
-  cat("          ", "Estimate",  "\n")
+  cat("          ", "Estimate ", "Std Error", "\n")
   cat("Intercept:", intercept, "\n")
-  cat("    Slope:", slope, "\n")
+  cat("    Slope:", slope,      se.slope, "\n")
+  cat("\n")
+  cat("Hypothesis Testing: \n")
   cat("----------------------------------- \n")
-
+  cat("Null: the slope is less or equal to", truebeta, "\n")
+  cat("Alt: the slope is greater than", truebeta, "\n")
+  cat("\n")
+  cat("          ", "T value",    "P-value", "\n")
+  cat("    Slope:",  T.slope,      p.slope,  "\n")
+  cat("\n")
+  cat("Confidence Interval (Two-Sided): \n")
+  cat("----------------------------------- \n")
+  cat("The", level, "% two-sided CI for the slope is:", "\n",  "[",Lower, ";", Upper,"] \n")
+  
 }
 
 ```
