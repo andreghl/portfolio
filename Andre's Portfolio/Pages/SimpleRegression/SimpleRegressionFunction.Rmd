@@ -35,7 +35,7 @@ y <- 2*x + rnorm(n = 300, mean = 1, sd = 3)
 
 # Plot
 
-plot(x, y) # To check if the relation between the two variables appears normal
+plot(x, y)
 
 ```
 
