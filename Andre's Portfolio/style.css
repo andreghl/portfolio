@@ -133,6 +133,12 @@ a {
   font-family: 'Courier New', Courier, monospace;
 }
 
+.email {
+  font-family: 'Courier New';
+  font-style: normal;
+  font-size: smaller;
+}
+
 /* Home Page */
 
 .empty {
