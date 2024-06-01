@@ -15,7 +15,7 @@
 @font-face {
   font-family: "et-book";
   src: url("../font/italic/italic.eot");
-  src: url("../font/italic/italic.eot") format("embedded-opentype"), url("../font/italic/italic..woff") format("woff"), url("../font/italic/italic.ttf") format("truetype"), url("../font/italic/italic.svg") format("svg");
+  src: url("../font/italic/italic.eot") format("embedded-opentype"), url("../font/italic/italic.woff") format("woff"), url("../font/italic/italic.ttf") format("truetype"), url("../font/italic/italic.svg") format("svg");
   font-weight: normal;
   font-style: italic
 }
@@ -251,5 +251,13 @@ footer a:hover {
 
   .content {
     width: 60%;
+  }
+}
+
+/* Adds dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: #151515;
+      color: #ddd;
   }
 }
