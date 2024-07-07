@@ -57,8 +57,32 @@ ul {
   background-color: white;
 }
 
+/* Adds dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #151515;
+    color: #ddd;
+  }
+
+  p,
+  h1 a,
+  i,
+  footer a {
+    color: white;
+  }
+
+  a .project-title {
+    color: white;
+  }
+
+  .project-details p{
+    color: aliceblue;
+  }
+}
+
 body {
-  font-family: "et-book", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;;
+  font-family: "et-book", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  ;
   line-height: 1.3;
 }
 
