@@ -621,7 +621,7 @@ left: 0;
 width: 100%;
 height: 100%;
 }
-@media (max-width: 760px) {
+@media (max-width: 1460px) {
 body {
 width: 84%;
 padding-left: 8%;
@@ -1140,7 +1140,7 @@ left: 0;
 width: 100%;
 height: 100%;
 }
-@media (max-width: 760px) {
+@media (max-width: 1460px) {
 body {
 width: 84%;
 padding-left: 8%;
@@ -1213,13 +1213,12 @@ width: 90%;
 }</style></p>
 <div class="description">
 <p>The linear regression is one of the most fundamental techniques used
-in Econometrics. For this reason, I will explore computer algorithms
-that allow us to perform such regressions. The method that I will use to
-solve this optimization problem is the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary
+in Econometrics. For this reason, I will explore algorithms that allow
+us to perform such regressions. The method that I will use to solve this
+optimization problem is the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary
 Least Squares</a> (OLS) method.</p>
 </div>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<p><br></p>
 <p>A linear regression model is an equation of the following
 form<label for="sn-linear" class="margin-toggle sidenote-number"> </label>:</p>
 <p><input type="checkbox" id="sn-linear" class="margin-toggle"></input> <span class="sidenote"> I find <a href="https://youtu.be/YIfANKRmEu4?si=RVnUKshFZ6eB_iYD">this video</a>
@@ -1235,17 +1234,8 @@ size <span class="math inline">\(n\)</span> , <span class="math inline">\(\beta\
 <span class="math inline">\(X\)</span> is a <span class="math inline">\(n \times k\)</span> matrix containing a column of
 <span class="math inline">\(1\)</span> <em>(the intercept)</em> and
 <span class="math inline">\(k - 1\)</span> columns of data <em>(the
-regressors)</em>.</p>
-<p><span class="math display">\[
-X = \begin{bmatrix}
-1 &amp; x_{11} &amp; x_{12} &amp; \ldots &amp; x_{1k} \\
-1 &amp; x_{21} &amp; x_{22} &amp; \ldots &amp; x_{2k} \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
-1 &amp; x_{n1} &amp; x_{n2} &amp; \ldots &amp; x_{nk} \\
-\end{bmatrix}
-\]</span></p>
-<p>The vector of coefficients <span class="math inline">\(\beta\)</span>
-is estimated according to the following formula:</p>
+regressors)</em>.The vector of coefficients <span class="math inline">\(\beta\)</span> is estimated according to the
+following formula:</p>
 <p><span class="math display">\[
 \tag{2}
 \beta = (X^{T}X)^{- 1} X^{T}y
@@ -1286,7 +1276,6 @@ set it equal to <span class="math inline">\(0\)</span>.</p>
 <div id="ref-Drury" class="csl-entry">
 Drury, M. (2016). <em>A deep dive into how r fits a linear model</em>.
 <a href="https://madrury.github.io/jekyll/update/statistics/2016/07/20/lm-in-R.html">https://madrury.github.io/jekyll/update/statistics/2016/07/20/lm-in-R.html</a>
-</div>
 </div>
 </div>
 
