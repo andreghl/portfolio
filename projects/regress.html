@@ -13,7 +13,7 @@
 
 
 <title>A Linear Regression</title>
-<link rel="shortcut icon" href="assets/logo.png" />
+
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
 document.addEventListener('DOMContentLoaded', function(e) {
@@ -1234,11 +1234,11 @@ size <span class="math inline">\(n\)</span> , <span class="math inline">\(\beta\
 <span class="math inline">\(X\)</span> is a <span class="math inline">\(n \times k\)</span> matrix containing a column of
 <span class="math inline">\(1\)</span> <em>(the intercept)</em> and
 <span class="math inline">\(k - 1\)</span> columns of data <em>(the
-regressors)</em>.The vector of coefficients <span class="math inline">\(\beta\)</span> is estimated according to the
+regressors)</em>. The vector of coefficients <span class="math inline">\(\beta\)</span> is estimated according to the
 following formula:</p>
 <p><span class="math display">\[
 \tag{2}
-\beta = (X^{T}X)^{- 1} X^{T}y
+\beta = (X&#39;X)^{- 1} X&#39;y
 \]</span></p>
 <p>This is the Ordinary Least Squares estimator for the coefficients
 found by minimizing the squared residuals of the model <span class="math inline">\(e&#39;e = (y - X \beta)&#39;(y - X \beta)\)</span>
@@ -1271,6 +1271,7 @@ set it equal to <span class="math inline">\(0\)</span>.</p>
 \beta &amp;= (X&#39;X)^{-1}X&#39;y
 \end{split}
 \]</span></p>
+<p><br></p>
 <hr />
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-Drury" class="csl-entry">
