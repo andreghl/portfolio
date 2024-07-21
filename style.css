@@ -66,8 +66,7 @@ ul {
 
   p,
   h1 a,
-  i,
-  footer a {
+  p a {
     color: white;
   }
 
@@ -78,6 +77,12 @@ ul {
   .project-details p{
     color: aliceblue;
   }
+
+  footer a i {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
 }
 
 body {
