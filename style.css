@@ -298,26 +298,15 @@ footer a:hover {
   margin-bottom: 30px;
 }
 
-.title {
+#menu {
   text-align: center;
 }
 
-.menu {
-  text-align: center;
-
+div {
+  display: block;
 }
 
-li {
-  display: inline-block;  
-  list-style:none;
-}
-
-.menu a,
-.menu {
+#menu a {
   color: inherit;
-  font-size: 18px;
-}
-
-ul li {
-  padding: 5px;
+  margin: 5px;
 }
