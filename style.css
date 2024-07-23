@@ -85,7 +85,7 @@ ul {
   }
 
   h3.about,
-  .about a{
+  .about a {
     color: inherit;
     text-align: center;
     margin: auto;
@@ -298,11 +298,26 @@ footer a:hover {
   margin-bottom: 30px;
 }
 
-h2.about,
-.about a{
-  color: inherit;
+.title {
   text-align: center;
-  margin: auto;
-  font-size: 18px;
+}
 
+.menu {
+  text-align: center;
+
+}
+
+li {
+  display: inline-block;  
+  list-style:none;
+}
+
+.menu a,
+.menu {
+  color: inherit;
+  font-size: 18px;
+}
+
+ul li {
+  padding: 5px;
 }
