@@ -310,3 +310,7 @@ div {
   color: inherit;
   margin: 5px;
 }
+
+#menu a:hover {
+  color: lightslategrey;
+}
