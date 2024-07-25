@@ -70,8 +70,10 @@ ul {
     color: #ddd;
   }
 
-  a .project-title {
+  a .project-title,
+  h2.project-title {
     color: #ddd;
+    text-align: left;
   }
 
   .project-details p {
@@ -102,7 +104,7 @@ h3 {
   width: 60%;
   margin: auto;
   text-align: left;
-  font-size: 30px;
+  font-size: 24px;
   font-family: serif;
 }
 
@@ -218,6 +220,8 @@ footer a:hover {
   font-size: 2rem;
   margin: 10px 0 30px;
   color: black;
+  text-align: left;
+  width: 100%;
 }
 
 .project-details p {
@@ -258,6 +262,7 @@ footer a:hover {
 
   .project-label {
     font-size: 8px;
+    text-align: left;
   }
 
   .project-container {
