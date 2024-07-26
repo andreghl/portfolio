@@ -299,12 +299,6 @@ footer a:hover {
     position: relative;
     text-align: center;
     margin: auto;
-    height: 300%;
-  }
-
-  iframe {
-    height: 10%;
-    width: 80%;
   }
 }
 
