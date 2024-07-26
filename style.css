@@ -298,6 +298,12 @@ footer a:hover {
   .onedrive {
     position: relative;
     text-align: center;
+    margin: auto;
+  }
+
+  iframe {
+    width: 240px;
+    height: 360px;
   }
 }
 
