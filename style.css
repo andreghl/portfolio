@@ -310,6 +310,12 @@ footer a:hover {
     text-align: center;
     margin: auto;
   }
+
+  .code {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -320,6 +326,12 @@ footer a:hover {
   }
 
   .projects {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .code {
     width: 80%;
     text-align: center;
     margin: auto;
