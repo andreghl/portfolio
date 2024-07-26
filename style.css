@@ -312,6 +312,12 @@ footer a:hover {
     width: 240px;
     height: 360px;
   }
+
+  .projects {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 .fab {
