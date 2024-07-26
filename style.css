@@ -299,6 +299,8 @@ footer a:hover {
     position: relative;
     text-align: center;
     margin: auto;
+    width: 80%;
+    height: 100%;
   }
 }
 
