@@ -304,6 +304,12 @@ footer a:hover {
     width: 480px;
     height: 720px;
   }
+
+  .projects {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -358,7 +364,7 @@ div {
 }
 
 .projects {
-  width: 40%;
+  width: 80%;
   text-align: center;
   margin: auto;
 }
