@@ -232,7 +232,7 @@ footer a:hover {
 
 /* Phone Screens */
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 900px) {
 
   .empty {
     /* Create Empty Box to prevent 
@@ -292,6 +292,13 @@ footer a:hover {
 
   .content {
     width: 60%;
+
+  }
+
+  .onedrive {
+    position: relative;
+    text-align: center;
+    margin: auto;
   }
 }
 
@@ -318,4 +325,10 @@ div {
 
 #menu a:hover {
   color: lightslategrey;
+}
+
+.onedrive {
+  position: relative;
+  text-align: center;
+  margin: auto;
 }
