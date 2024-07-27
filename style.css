@@ -145,7 +145,7 @@ a {
 
 .container {
   height: max-content;
-  width: 60%;
+  width: 50%;
   margin: auto;
   left: 0;
 }
@@ -197,7 +197,7 @@ footer a:hover {
 /* Project Page */
 
 .project-container {
-  max-width: 70%;
+  max-width: 60%;
   margin: auto;
 }
 
@@ -266,7 +266,7 @@ footer a:hover {
   }
 
   .project-container {
-    width: 90%;
+    width: 80%;
     margin: auto;
   }
 
@@ -285,7 +285,7 @@ footer a:hover {
 
   .container {
     height: max-content;
-    width: 90%;
+    width: 80%;
     margin: auto;
     left: 0;
   }
