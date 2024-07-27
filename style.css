@@ -376,8 +376,11 @@ div {
   margin: auto;
 }
 
+@media only screen and (min-width: 900px) {
+
 .projects {
   width: 30%;
   text-align: center;
   margin: auto;
+}
 }
