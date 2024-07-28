@@ -390,7 +390,7 @@ div {
   float:left;
 }
 
-.project-content {
+.projects .project-content {
   float:right;
   width: 50%;
   margin: auto;
