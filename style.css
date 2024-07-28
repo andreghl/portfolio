@@ -332,7 +332,6 @@ footer a:hover {
   }
 
   .code {
-
     text-align: center;
     margin: auto;
   }
@@ -377,20 +376,20 @@ div {
 
 @media only screen and (min-width: 900px) {
 
-.projects {
-  width: 40%;
-  text-align: center;
-  margin: auto;
-}
+  .projects {
+    width: 40%;
+    text-align: center;
+    margin: auto;
+  }
 }
 
 .projects img {
   width: 40%;
-  float:left;
+  float: left;
 }
 
 .projects .project-content {
-  float:right;
+  float: right;
   width: 50%;
   margin: auto;
 }
