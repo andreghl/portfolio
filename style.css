@@ -379,8 +379,27 @@ div {
 @media only screen and (min-width: 900px) {
 
 .projects {
-  width: 30%;
+  width: 40%;
   text-align: center;
   margin: auto;
 }
+}
+
+.projects img {
+  width: 40%;
+  float:left;
+}
+
+.project-content {
+  float:right;
+  width: 50%;
+  margin: auto;
+}
+
+.cv {
+  text-align: center;
+}
+
+.cv img {
+  width: 50%;
 }
