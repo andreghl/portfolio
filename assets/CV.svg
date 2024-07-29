@@ -62,7 +62,7 @@
            x="0">|</tspan></text>
 <text
          id="text42"
-         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:TimesNewRomanPSMT;-inkscape-font-specification:TimesNewRomanPSMT;writing-mode:lr-tb;fill:#1155cc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:TimesNewRomanPSMT;-inkscape-font-specification:TimesNewRomanPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
          transform="translate(281.21759,14.9375)"><tspan
            id="tspan40"
            y="0"
@@ -72,24 +72,24 @@
        id="g44"><text
          id="text48"
          style="font-variant:normal;font-weight:normal;font-size:16px;font-family:TimesNewRomanPSMT;-inkscape-font-specification:TimesNewRomanPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="translate(205.64726,14.9375)"><tspan
+         transform="translate(171.72929,14.9375)"><tspan
            id="tspan46"
            y="0"
-           x="0">●</tspan></text>
+           x="0 8 12.445312 16.890625 24.890625 32.890625 40.890625 44.890625 51.992188 59.992188 72.4375 76.882812 83.984375 91.984375 99.984375 105.3125 112.41406 120.41406 128.41406">github.com/andreghl</tspan></text>
 <text
          id="text52"
          style="font-variant:normal;font-weight:normal;font-size:16px;font-family:TimesNewRomanPSMT;-inkscape-font-specification:TimesNewRomanPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="translate(219.31133,14.9375)"><tspan
+         transform="translate(308.58868,14.9375)"><tspan
            id="tspan50"
            y="0"
-           x="0 8 12.445312 16.890625 24.890625 31.117188 35.5625 40.007812 44.453125 51.554688 59.554688 67.554688 72.882812 79.984375 87.984375 95.984375 103.98438 111.98438 119.98438 127.08594 131.08594 138.1875 146.1875 158.63281">https://andreghonda.com/</tspan></text>
+           x="0">|</tspan></text>
 <text
          id="text56"
          style="font-variant:normal;font-weight:normal;font-size:16px;font-family:TimesNewRomanPSMT;-inkscape-font-specification:TimesNewRomanPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="translate(386.38947,14.9375)"><tspan
+         transform="translate(315.79181,14.9375)"><tspan
            id="tspan54"
            y="0"
-           x="0">●</tspan></text>
+           x="0 7.1015625 15.101562 23.101562 28.429688 35.53125 43.53125 51.53125 59.53125 67.53125 75.53125 82.632812 86.632812 93.734375 101.73438">andreghonda.com</tspan></text>
 </g><g
        transform="matrix(0.75,0,0,0.75,72,151.34326)"
        id="g58"><text
@@ -1470,9 +1470,4 @@
            id="tspan870"
            y="0"
            x="0 9.7734375 16.875 23.101562 30.203125 38.203125 43.835938 50.9375">Research</tspan></text>
-</g><g
-       transform="matrix(0.75,0,0,0.75,72,103.73731)"
-       id="g874"><path
-         id="path876"
-         style="fill:none;stroke:#1155cc;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-         d="M 281.33334,17.016928 H 506.66666" /></g></g></svg>
+</g></g></svg>
