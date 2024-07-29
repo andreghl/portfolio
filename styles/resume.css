@@ -47,6 +47,10 @@ a {
     color: inherit;
 }
 
+img {
+    border: 1px solid #555;
+}
+
 a:hover {
     color: gray;
 }
