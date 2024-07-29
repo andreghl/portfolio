@@ -1,5 +1,3 @@
-/* Fonts */
-
 @charset "UTF-8";
 
 @font-face {
@@ -26,37 +24,121 @@
     font-style: normal
 }
 
-:root {
+body {
     background-color: #fffff8;
-    font-family: "et-book", Palatino, Georgia, serif;
+    font-family: "et-book", Georgia, serif;
     line-height: 1.3;
+    color: black;
 }
 
 h1 {
-    margin-left: auto;
-    margin-top: 10%;
     text-align: center;
+    margin-top: 10%;
+    margin-bottom: 2%;
 }
 
 h2 {
-    
+    text-align: center;
 }
 
-p {
-    font-size: 20px;
-    text-align: justify;
+h3 {
+    text-align: left;
 }
 
-ul {
-    list-style-type: none;
-}
-
-.sep {
+.doc {
+    float: left;
     width: 30%;
-    margin: auto;
 }
 
-.sep hr {
-    margin-top: 3%;
-    margin-bottom: 3%;
+.slide {
+    float: left;
+    width: 40%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: gray;
+}
+
+#menu {
+    text-align: center;
+    text-decoration: none;
+
+}
+
+#menu a {
+    margin: 5px;
+}
+
+#main {
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+#project {
+    text-align: center;
+    margin: 5%;
+
+}
+
+.content {
+    float: right;
+    width: 50%;
+}
+
+.label {
+    color: brown;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: left;
+}
+
+.title {
+    margin: 2%;
+    text-align: left;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 960px) {
+
+    #main {
+        width: 60%;
+        text-align: center;
+        margin: auto;
+        padding: 2%;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    #main {
+        width: 80%;
+        text-align: center;
+        margin: auto;
+        padding: 2%;
+    }
+
+    .title {
+        font-size: 10px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #151515;
+        color: #ddd;
+    }
 }
