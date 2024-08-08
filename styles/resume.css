@@ -65,7 +65,7 @@ a:hover {
     margin: 5px;
 }
 
-#main a {
+#main {
     width: 30%;
     text-align: center;
     margin: auto;
@@ -76,7 +76,7 @@ a:hover {
 
 @media only screen and (max-width: 960px) {
     
-    #main a {
+    #main {
         width: 50%;
         text-align: center;
         margin: auto;
@@ -86,7 +86,7 @@ a:hover {
 
 @media only screen and (max-width: 480px) {
     
-    #main a {
+    #main {
         width: 60%;
         text-align: center;
         margin: auto;
