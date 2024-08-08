@@ -43,6 +43,10 @@ a {
     color: inherit;
 }
 
+p a {
+    text-decoration: underline;
+}
+
 a:hover {
     color: gray;
 }
