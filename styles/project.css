@@ -51,12 +51,7 @@ img {
 
 .doc {
     float: left;
-    width: 30%;
-}
-
-.slide {
-    float: left;
-    width: 40%;
+    width: 45%;
 }
 
 a {
@@ -98,15 +93,20 @@ a:hover {
     width: 50%;
 }
 
+.content p {
+    font-size: 14px;
+    text-align: left;
+}
+
 .label {
     color: brown;
     font-family: monospace;
     font-weight: bold;
+    font-style: italic;
     text-align: left;
 }
 
 .title {
-    margin: 2%;
     text-align: left;
     font-size: 20px;
 }
@@ -121,7 +121,11 @@ a:hover {
     }
 
     .title {
-        font-size: 12px;
+        font-size: 14px;
+    }
+
+    .content p {
+        font-size: 10px;
     }
 }
 
@@ -136,6 +140,10 @@ a:hover {
 
     .title {
         font-size: 10px;
+    }
+
+    .content p {
+        font-size: 7px;
     }
 }
 
