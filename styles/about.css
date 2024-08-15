@@ -51,6 +51,13 @@ a:hover {
     color: gray;
 }
 
+img {
+    border: 1px solid #555;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
 #menu {
     text-align: center;
     text-decoration: none;
