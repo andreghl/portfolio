@@ -105,6 +105,7 @@ a:hover {
     font-weight: bold;
     font-style: italic;
     text-align: left;
+    font-size: 12px;
 }
 
 .title {
@@ -128,6 +129,10 @@ a:hover {
     .content p {
         font-size: 9px;
     }
+
+    .label {
+        font-size: 8px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -140,10 +145,14 @@ a:hover {
     }
 
     .title {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .content p {
+        font-size: 8px;
+    }
+
+    .label {
         font-size: 7px;
     }
 }
