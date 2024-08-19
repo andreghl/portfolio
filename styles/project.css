@@ -115,18 +115,18 @@ a:hover {
 @media only screen and (max-width: 960px) {
 
     #main {
-        width: 60%;
+        width: 70%;
         text-align: center;
         margin: auto;
         padding: 2%;
     }
 
     .title {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .content p {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
