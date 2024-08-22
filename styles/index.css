@@ -99,11 +99,3 @@ a:hover {
         padding: 5%;
     }
 }
-
-@media (prefers-color-scheme: dark) {
-
-    body {
-        background-color: #151515;
-        color: #ddd;
-    }
-}
