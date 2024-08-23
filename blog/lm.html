@@ -12,6 +12,7 @@
 
 <meta name="author" content="Andre-Ignace Ghonda Lukoki" />
 
+<meta name="date" content="2024-06-01" />
 
 <title>A Linear Regression</title>
 
@@ -144,38 +145,89 @@ margin-left: 2em;
 
 <h1 class="title toc-ignore">A Linear Regression</h1>
 <h4 class="author">Andre-Ignace Ghonda Lukoki</h4>
-<h4 class="date">June 1st, 2024</h4>
+<h4 class="date">June 1, 2024</h4>
 
 
 
 <div class="description">
-<p>The linear regression is one of the most fundamental technique used in Econometrics. For this reason, I will explore algorithms that allow us to perform such regressions.</p>
+<p>The linear regression is the most fundamental technique used in Econometrics. Its popularity stems from the interpretability of its coefficients, and the numerous possibilities of extension. Regressions aim to predict the value of a continuous dependent variable based on a series of regressors. In this article, I summarize the knowledge I have acquired on linear regression analysis through university courses and self-study.</p>
 </div>
-<p>Statistical modeling attempts to find the functional form of the relationship between a set of independent variables, denoted by <span class="math inline">\(X = (X_{1}, X_{2}, \dots, X_{p})\)</span>, and a response variable <span class="math inline">\(Y\)</span>. The linear regression limits the set of potential functional forms to those that are linear in parameters. A linear regression model is an equation of the following form<label for="sn-linear" class="margin-toggle sidenote-number"></label>:</p>
 <p><input type="checkbox" id="sn-linear" class="margin-toggle"></input>
 <span class="sidenote">
 I find <a href="https://youtu.be/YIfANKRmEu4?si=RVnUKshFZ6eB_iYD">this video</a> by <strong>Mutual Information</strong> to be a nice introduction to linear regressions.
 </span></p>
+<p>Econometric modeling attempts to estimate the relationship between a set of independent variables or <strong>features</strong>, denoted by <span class="math inline">\(X = (X_{1}, X_{2}, \dots, X_{p})\)</span>, and a <strong>response</strong> variable <span class="math inline">\(y\)</span><label for="sn-linear" class="margin-toggle sidenote-number"></label>. The parameters <span class="math inline">\(\beta_{p}\)</span> limit the set of possible relationships to those that are linear. The econometrician chooses the features to include and the hypothesized functional form of the model for either inference or prediction purposes. The data is assumed to be the realization of an unobservable <em>data-generating process</em> (DGP) from which we know nothing but the probability distribution of its constituents.</p>
+<div id="simple-linear-regression" class="section level2">
+<h2>Simple Linear Regression</h2>
+<p>The simple regression model is used to study the relationship between a single independent variable and a predictor. The population model is assumed to have the following functional form:</p>
 <p><span class="math display">\[
-\tag{1}
-y = X \beta + \epsilon
+y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i} \qquad (i = 1, \dots, n)
 \]</span></p>
-<p>where the dependent variable <span class="math inline">\(y\)</span> and the errors <span class="math inline">\(e\)</span> are vectors of size <span class="math inline">\(n\)</span> , <span class="math inline">\(\beta\)</span> is a vector of coefficients and <span class="math inline">\(X\)</span> is a <span class="math inline">\(n \times k\)</span> matrix containing a column of <span class="math inline">\(1\)</span> <em>(the intercept)</em> and <span class="math inline">\(k - 1\)</span> columns of data <em>(the regressors)</em>. The vector of coefficients <span class="math inline">\(\beta\)</span> is estimated according to the following formula:</p>
+<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept of the model, <span class="math inline">\(\beta_{1}\)</span> shows the average change in the independent variable associated with a one unit change in the value of the regressor, and the error is represented by <span class="math inline">\(\epsilon_{i}\)</span>. The data does not usually stands on a perfect line, the error term <span class="math inline">\(\epsilon_{i}\)</span> represents the deviations from the linear DGP, which are assumed to follow the standard Normal distribution. This error term, however, is more than simple noise when it comes to estimation. Most estimation methods for the linear regression aim to minimize a function of the errors. In this article, we focus on the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> (OLS) method that minimizes the <em>residual sum of squares</em> (RSS) defined as</p>
 <p><span class="math display">\[
-\tag{2}
-\beta = (X&#39;X)^{- 1} X&#39;y
+RSS = \sum_{i = 1}^{N} e_{i}^{2} = \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \]</span></p>
-<p>This is the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> estimator for the coefficients found by minimizing the squared residuals of the model <span class="math inline">\(e&#39;e = (y - X \beta)&#39;(y - X \beta)\)</span> with respect to <span class="math inline">\(\beta\)</span>.</p>
+<div class="note">
+<p>The “beta hat” <span class="math inline">\(\hat{\beta}\)</span> notation is meant to represent the estimated coefficient. The idea behind minimizing the squared residuals is simple. The minimum of the squared residuals was easier to derive in an era where computation was not widely accessible, nor powerful enough to minimize the absolute deviation in the multivariate case. The ordinary least squares is guaranteed to have at most one solution assuming that the number of obsevations is greater than the number of regressors.</p>
+</div>
+<p>The OLS estimators for the intercept and the slope are defined as the set of input values at which the minimum of <span class="math inline">\(RSS(\beta_{0}, \beta_{1})\)</span> is found.</p>
 <p><span class="math display">\[
 \begin{split}
-\min_{\beta} \phi (\beta) &amp;= (y - X \beta)&#39; (y - X \beta)
+\hat{\beta_{0}}, \hat{\beta_{1}} &amp;= \min_{\beta_{0}, \beta_{1}} RSS(\beta_{0}, \beta_{1})
+\\
+&amp;= \min_{\beta_{0}, \beta_{1}} \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
+\end{split}
+\]</span></p>
+<p>The solution for the first coefficient is found by setting the first derivative of the residual sum of squares with respect to <span class="math inline">\(\beta_{0}\)</span> equal to zero.</p>
+<p><span class="math display">\[
+\begin{split}
+\frac{d RSS(\beta_{0}, \beta_{1})}{d \beta_{0}} &amp;= - 2 \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})
+\\
+0 &amp;= \sum_{i = 1}^{N} y_{i} - n \beta_{0} - \beta_{1} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{0} &amp;= \frac{1}{n} \sum_{i = 1}^{N} y_{i} - \frac{1}{n} \beta_{1} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{0} &amp;= \bar{y} - \beta_{1} \bar{x}
+\end{split}
+\]</span></p>
+<p>The derivation of the estimator for <span class="math inline">\(\beta_{1}\)</span> follows the same step as the previous derivation, take the derivative and set it equal to <span class="math inline">\(0\)</span>.</p>
+<p><span class="math display">\[
+\begin{split}
+\frac{d RSS(\beta_{0}, \beta_{1})}{d \beta_{1}} &amp;= \sum_{i = 1}^{N} -2 x_{i} (y_{i} - \beta_{0} - \beta_{1} x_{i})
+\\
+0 &amp;=  -\sum_{i = 1}^{N} x_{i} y_{i} + \beta_{0} \sum_{i = 1}^{N}  x_{i} + \beta_{1} \sum_{i = 1}^{N} x_{i}^{2}
+\\
+\beta_{1} \sum_{i = 1}^{N} x_{i}^{2} &amp;= \sum_{i = 1}^{N} x_{i} y_{i} - \beta_{0} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{1} \sum_{i = 1}^{N} x_{i}^{2} &amp;= \sum_{i = 1}^{N} x_{i} y_{i} - (\bar{y} - \beta_{1} \bar{x}) \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{1} \sum_{i = 1}^{N} x_{i}^{2} &amp;= \sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i} + \beta_{1} \bar{x} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{1} \sum_{i = 1}^{N} x_{i}^{2} - \beta_{1} \bar{x} \sum_{i = 1}^{N}  x_{i} &amp;= \sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{1} (\sum_{i = 1}^{N} x_{i}^{2} - \bar{x} \sum_{i = 1}^{N}  x_{i}) &amp;= \sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}
+\\
+\beta_{1} &amp;= \frac{\sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}}{\sum_{i = 1}^{N} x_{i}^{2} - \bar{x} \sum_{i = 1}^{N}  x_{i}}
+\end{split}
+\]</span></p>
+</div>
+<div id="multivariate-linear-regression" class="section level2">
+<h2>Multivariate Linear Regression</h2>
+<p>In the multivariate case, the model can better be represented using matrix notation in the following way:</p>
+<p><span class="math display">\[
+y = X \beta + \epsilon
+\]</span></p>
+<p>where <span class="math inline">\(y\)</span> in a vector of size <span class="math inline">\(n\)</span>, <span class="math inline">\(X\)</span> is a <span class="math inline">\(n \times m\)</span> matrix, <span class="math inline">\(\beta\)</span> is <span class="math inline">\(m\)</span>-vector, and <span class="math inline">\(\epsilon\)</span> is an other vector of size <span class="math inline">\(n\)</span>. <span class="math inline">\(m\)</span> is simply the number of independent variables <span class="math inline">\(p\)</span> plus one, thus the matrix <span class="math inline">\(X\)</span> contains <span class="math inline">\(p\)</span> regressors and a vector of ones to estimate the intercept. In matrix notation, the coefficients are also estimated by minimizing the sum of squared residuals <span class="math inline">\(e&#39;e = (y - X \beta)&#39;(y - X \beta)\)</span> with respect to <span class="math inline">\(\beta\)</span>.</p>
+<p><span class="math display">\[
+\begin{split}
+\phi (\beta) &amp;= (y - X \beta)&#39; (y - X \beta)
 \\
 &amp;= y&#39;y - y&#39; X \beta - \beta&#39; X&#39; y + \beta&#39; X&#39; X \beta
 \\
 &amp;= y&#39;y - 2 \beta&#39; X&#39; y + \beta&#39; X&#39; X \beta
 \end{split}
 \]</span></p>
-<p>Applying the rules of optimization, we take the derivative and set it equal to <span class="math inline">\(0\)</span>.</p>
+<p>To find the minimum, the derivative of <span class="math inline">\(\phi(\beta)\)</span> must be set equal to <span class="math inline">\(0\)</span>.</p>
 <p><span class="math display">\[
 \begin{split}
 \frac{d}{d \beta}(\dots) = -2X&#39;y + 2 X&#39;X \beta &amp;= 0
@@ -185,19 +237,24 @@ y = X \beta + \epsilon
 \beta &amp;= (X&#39;X)^{-1}X&#39;y
 \end{split}
 \]</span></p>
-<p>The <code>LinearAlgebra.jl</code> package makes it easy to manipulate vectors and matrices in Julia. Once the package is loaded into the session and the variables have been defined, we can create a function that takes two arguments, a response variable and a vector of independent variables. The algorithm, then adds an intercept to the matrix of predictors to improve the <em>goodness-of-fit</em> of the model.</p>
-<pre class="julia"><code>using LinearAlgebra
+<p>The <code>LinearAlgebra</code> package makes it easy to manipulate vectors and matrices in Julia. Once the package is loaded, and the variables are defined, the next step is to create a function that takes two arguments, the response variable <span class="math inline">\(y\)</span> and the matrix <span class="math inline">\(X\)</span> of regressors with a vector of ones as the first column. The coefficients are calculated according to the least squares formula derived above.</p>
+<pre class="julia"><code>function lm(y::Vector, X::Matrix)
 
-lm = function(y::Vector{Float64}, X::Matrix{Float64})
-
-       beta = inv(X&#39;X)X&#39;y
-return beta
+    beta = inv(X&#39;X)X&#39;y
+    return beta
 end</code></pre>
-<p>The inclusion of an intercept is always better than its absence. In the case where the data were to need one, the estimation of the coefficients would be biased. The presence of an intercept when none is necessary does not bias the estimation because the estimated intercept would simply be insignificant.</p>
+<p>In the previous algorithm, the matrix <span class="math inline">\(X\)</span> is assumed to include a vector of ones as the first column, and the matrix of regressor in the next columns. The Ordinary Least Squares regression does not require the presence of an intercept to estimate the remaining coefficients.</p>
+<p><span class="math display">\[
+X = \begin{bmatrix}
+1 &amp; x_{11} &amp; \dots &amp; x_{1p} \\ 1 &amp; x_{21} &amp; \dots &amp; x_{2p} \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_{n1} &amp; \dots &amp; x_{np}
+\end{bmatrix}
+\]</span></p>
+<p>It is common practice, however, to include an intercept in the regression. The significance of its coefficient will tell us whether it is useful to keep the intercept in the model.</p>
 <hr />
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-Magnus" class="csl-entry">
 Magnus, J. R. (2021). <em>Introduction to the theory of econometrics</em> (6th ed.). VU University Press. <a href="https://vuuniversitypress.com/product/introduction-to-the-theory-of-econometrics/?lang=en">https://vuuniversitypress.com/product/introduction-to-the-theory-of-econometrics/?lang=en</a>
+</div>
 </div>
 </div>
 
