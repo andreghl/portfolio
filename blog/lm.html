@@ -139,9 +139,11 @@ y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i} \qquad (i = 1, \dots, n)
 <p><span class="math display">\[
 RSS = \sum_{i = 1}^{N} e_{i}^{2} = \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \]</span></p>
-<div class="note">
-<p>The “beta hat” <span class="math inline">\(\hat{\beta}\)</span> notation is meant to represent the estimated coefficient. The idea behind minimizing the squared residuals is simple. The minimum of the squared residuals was easier to derive in an era where computation was not widely accessible, nor powerful enough to minimize the absolute deviation in the multivariate case. The ordinary least squares is guaranteed to have at most one solution assuming that the number of observations is greater than the number of regressors.</p>
-</div>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">The Ordinary Least Squares method was developed in an era where
+computational methods were not powerful enough to minimize the least
+absolute deviations. The Least Squares method is also guaranted to have
+at most one solution if the number of observations is greater than the
+number of independent variables.</span></span></p>
 <p>The OLS estimators for the intercept and the slope are defined as the set of input values at which the minimum of <span class="math inline">\(RSS(\beta_{0}, \beta_{1})\)</span> is found.</p>
 <p><span class="math display">\[
 \begin{split}
