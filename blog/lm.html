@@ -135,7 +135,7 @@ linear regressions.</span></span></p>
 <p><span class="math display">\[
 y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i} \qquad (i = 1, \dots, n)
 \]</span></p>
-<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept of the model, <span class="math inline">\(\beta_{1}\)</span> shows the average change in the dependent variable associated with a one unit change in the value of the regressor, and the error is represented by <span class="math inline">\(\epsilon_{i}\)</span>. The data does not usually stands on a perfect line, the error term <span class="math inline">\(\epsilon_{i}\)</span> represents the deviations from the linear DGP, which are assumed to follow the standard Normal distribution. This error term, however, is more than simple noise when it comes to estimation. Most estimation methods for the linear regression aim to minimize a function of the errors. In this article, we focus on the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> (OLS) method that minimizes the <em>residual sum of squares</em> (RSS) defined as</p>
+<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept of the model, <span class="math inline">\(\beta_{1}\)</span> shows the average change in the dependent variable associated with a one unit change in the value of the regressor, and the error is represented by <span class="math inline">\(\epsilon_{i}\)</span>. The data does not usually stands on a perfect line, the error term <span class="math inline">\(\epsilon_{i}\)</span> represents the deviations from the linear DGP, which are assumed to follow the Normal distribution. This error term, however, is more than simple noise when it comes to estimation. Most estimation methods for the linear regression aim to minimize a function of the errors. In this article, we focus on the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> (OLS) method that minimizes the <em>residual sum of squares</em> (RSS) defined as</p>
 <p><span class="math display">\[
 RSS = \sum_{i = 1}^{N} e_{i}^{2} = \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \]</span></p>
@@ -197,7 +197,7 @@ y = X \beta + \epsilon
 \begin{split}
 \phi (\beta) &amp;= (y - X \beta)&#39; (y - X \beta)
 \\
-&amp;= y&#39;y - y&#39; X \beta - \beta&#39; X&#39; y + \beta&#39; X&#39; X \beta
+&amp;= y&#39;y - y&#39;X \beta - \beta&#39; X&#39;y + \beta&#39; X&#39;X \beta
 \\
 &amp;= y&#39;y - 2 \beta&#39; X&#39; y + \beta&#39; X&#39; X \beta
 \end{split}
@@ -230,6 +230,45 @@ t_{\hat{\beta}} = \frac{\hat{\beta} - \beta}{\text{se}(\hat{\beta})} \qquad \tex
 \]</span></p>
 <p>The null hypothesis presented above is the standard approach in many statistical packages and simply tests for the significance of the coefficient in the model. This test can easily be extended to test for the significance of any (null) hypothesis.</p>
 <pre class="julia"><code>Tstat = (beta - 0) ./ betaSE</code></pre>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">I will not present many of the derivations because I do not know or
+understand them, yet. The formula for <span class="math inline"><span class="math inline">\(\text{Var}(\hat{\beta})\)</span></span> is taken from <a
+href="https://stats.stackexchange.com/questions/44838/how-are-the-standard-errors-of-coefficients-calculated-in-a-regression">Cross
+Validated</a>.</span></span></p>
+<p>The formula of the t-statistic includes a term that has not yet been defined, the standard error of the coefficients <span class="math inline">\(\text{se}(\hat{\beta})\)</span>. First of all, the standard error is simply the square root of the variance of the estimated coefficients. The variance of <span class="math inline">\(\hat{\beta}\)</span> depends on the variance of the error term and the inverse of the <span class="math inline">\(X&#39;X\)</span> matrix.</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\beta}) = \hat{\sigma}^{2}_{\epsilon} (X&#39;X)^{-1}
+\]</span></p>
+<p>The variance of the error term is defined as</p>
+<p><span class="math display">\[
+\hat{\sigma}^{2}_{\epsilon} = \frac{RSS}{n - k}
+\]</span></p>
+<p>where the residual sum of squares is divided by the difference between the number of observation <em>(number of rows)</em> and the number of regressors + <span class="math inline">\(1\)</span> <em>(number of columns)</em> in the <span class="math inline">\(X\)</span> matrix.</p>
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">-->
+<img src="lm_files/figure-html/tdistribution-1.png" alt=" " width="672"  />
+<!--
+<p class="caption marginnote">--> <!--</p>-->
+<!--</div>--></span>
+</p>
+<pre class="julia"><code>  n = length(y)
+  k = size(X, 2)
+  e = y - (X * beta)
+
+  s2 = e&#39;e / (n - k)
+  betaSE = sqrt.(diag(inv(X&#39;X) * s2))</code></pre>
+<p>The t-statistic is useful when it can be associated with a probability. The likelihood of the hypothesized coefficient <span class="math inline">\(\beta\)</span> can be calculated using the <strong>Student’s t-distribution</strong>. The probability of interest is <span class="math inline">\(P(x &gt; | t_{\beta}|)\)</span>, or the area that is beyond the absolute value of the t-statistic. In Julia, the algorithm to compute those probabilities can be created using the <code>Distributions</code> package.</p>
+<pre class="julia"><code>using Distributions
+
+function pt(T, df = 100) 
+
+   pdf = TDist(df)
+   Pvalue = 1 - cdf(pdf, T)
+   return Pvalue
+end</code></pre>
+<p>Once the <code>pt()</code>function is created, the significance of each coefficient is calculated by adding this next line to the original <code>lm()</code> function.</p>
+<pre class="julia"><code>pvalue = [pt(t, n - 1) for t in tstat]</code></pre>
 <hr />
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-Magnus" class="csl-entry">

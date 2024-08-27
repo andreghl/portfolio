@@ -24,15 +24,9 @@
     font-style: normal
 }
 
-#menu {
-    text-align: left;
-    margin-top: 20px;
-}
-
 #refs {
     width: 62.5%;
     margin-right: auto;
-    padding-top: 1%;
     padding-bottom: 5%;
 }
 
@@ -53,9 +47,4 @@ a:hover {
 svg {
     height: 12px;
     width: 12px;
-}
-
-.note {
-    font-style: italic;
-    font-size: 12px;
 }
