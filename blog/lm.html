@@ -128,14 +128,14 @@ div.csl-indent {
 href="https://youtu.be/YIfANKRmEu4?si=RVnUKshFZ6eB_iYD">this video</a>
 by <strong>Mutual Information</strong> to be a nice introduction to
 linear regressions.</span></span></p>
-<p>Econometric modeling attempts to estimate the relationship between a set of independent variables or <strong>features</strong>, denoted by <span class="math inline">\(X = (X_{1}, X_{2}, \dots, X_{p})\)</span>, and a <strong>response</strong> variable <span class="math inline">\(y\)</span>. The parameters <span class="math inline">\(\beta_{p}\)</span> limit the set of possible relationships to those that are linear. The econometrician chooses the features to include and the hypothesized functional form of the model for either inference or prediction purposes. The data is assumed to be the realization of an unobservable <em>data-generating process</em> (DGP) from which we know nothing but the probability distribution of its constituents.</p>
+<p>Econometric modeling attempts to estimate the relationship between a set of independent variables or <strong>features</strong>, denoted by <span class="math inline">\(X = (X_{1}, X_{2}, \dots, X_{p })\)</span>, and a <strong>response</strong> variable <span class="math inline">\(y\)</span>. The parameters <span class="math inline">\(\beta_{p + 1}\)</span> limit the set of possible relationships to those that are linear. The econometrician chooses the features to include and the hypothesized functional form of the model for either inference or prediction purposes. The data is assumed to be the realization of an unobservable <em>data-generating process</em> (DGP) from which we know nothing but the probability distribution of its constituents.</p>
 <div id="simple-linear-regression" class="section level2">
 <h2>Simple Linear Regression</h2>
 <p>The simple regression model is used to study the relationship between a single independent variable and a predictor. The population model is assumed to have the following functional form:</p>
 <p><span class="math display">\[
 y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i} \qquad (i = 1, \dots, n)
 \]</span></p>
-<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept of the model, <span class="math inline">\(\beta_{1}\)</span> shows the average change in the independent variable associated with a one unit change in the value of the regressor, and the error is represented by <span class="math inline">\(\epsilon_{i}\)</span>. The data does not usually stands on a perfect line, the error term <span class="math inline">\(\epsilon_{i}\)</span> represents the deviations from the linear DGP, which are assumed to follow the standard Normal distribution. This error term, however, is more than simple noise when it comes to estimation. Most estimation methods for the linear regression aim to minimize a function of the errors. In this article, we focus on the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> (OLS) method that minimizes the <em>residual sum of squares</em> (RSS) defined as</p>
+<p>where <span class="math inline">\(\beta_{0}\)</span> is the intercept of the model, <span class="math inline">\(\beta_{1}\)</span> shows the average change in the dependent variable associated with a one unit change in the value of the regressor, and the error is represented by <span class="math inline">\(\epsilon_{i}\)</span>. The data does not usually stands on a perfect line, the error term <span class="math inline">\(\epsilon_{i}\)</span> represents the deviations from the linear DGP, which are assumed to follow the standard Normal distribution. This error term, however, is more than simple noise when it comes to estimation. Most estimation methods for the linear regression aim to minimize a function of the errors. In this article, we focus on the <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">Ordinary Least Squares</a> (OLS) method that minimizes the <em>residual sum of squares</em> (RSS) defined as</p>
 <p><span class="math display">\[
 RSS = \sum_{i = 1}^{N} e_{i}^{2} = \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \]</span></p>
@@ -147,9 +147,9 @@ number of independent variables.</span></span></p>
 <p>The OLS estimators for the intercept and the slope are defined as the set of input values at which the minimum of <span class="math inline">\(RSS(\beta_{0}, \beta_{1})\)</span> is found.</p>
 <p><span class="math display">\[
 \begin{split}
-\hat{\beta_{0}}, \hat{\beta_{1}} &amp;= \min_{\beta_{0}, \beta_{1}} RSS(\beta_{0}, \beta_{1})
+\hat{\beta_{0}}, \hat{\beta_{1}} &amp;= \operatorname{argmin}_{\beta_{0}, \beta_{1}} RSS(\beta_{0}, \beta_{1})
 \\
-&amp;= \min_{\beta_{0}, \beta_{1}} \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
+&amp;= \operatorname{argmin}_{\beta_{0}, \beta_{1}} \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \end{split}
 \]</span></p>
 <p>The solution for the first coefficient is found by setting the first derivative of the residual sum of squares with respect to <span class="math inline">\(\beta_{0}\)</span> equal to zero.</p>
@@ -158,27 +158,32 @@ number of independent variables.</span></span></p>
 \frac{d RSS(\beta_{0}, \beta_{1})}{d \beta_{0}} &amp;= - 2 \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})
 \\
 0 &amp;= \sum_{i = 1}^{N} y_{i} - n \beta_{0} - \beta_{1} \sum_{i = 1}^{N}  x_{i}
-\\
-\beta_{0} &amp;= \frac{1}{n} \sum_{i = 1}^{N} y_{i} - \frac{1}{n} \beta_{1} \sum_{i = 1}^{N}  x_{i}
-\\
-\beta_{0} &amp;= \bar{y} - \beta_{1} \bar{x}
 \end{split}
-\]</span></p>
-<p>The derivation of the estimator for <span class="math inline">\(\beta_{1}\)</span> follows the same step as the previous derivation, take the derivative and set it equal to <span class="math inline">\(0\)</span>.</p>
+\]</span>
+The solution is then:
+<span class="math display">\[
+\beta_{0} = \frac{1}{n} \sum_{i = 1}^{N} y_{i} - \frac{1}{n} \beta_{1} \sum_{i = 1}^{N}  x_{i} = \bar{y} - \beta_{1} \bar{x}
+\]</span>
+The derivation of the estimator for <span class="math inline">\(\beta_{1}\)</span> follows the same step as the previous derivation, take the derivative and set it equal to <span class="math inline">\(0\)</span>.</p>
 <p><span class="math display">\[
 \begin{split}
 \frac{d RSS(\beta_{0}, \beta_{1})}{d \beta_{1}} = \sum_{i = 1}^{N} -2 x_{i} (y_{i} - \beta_{0} - \beta_{1} x_{i})
 \\
 0 =  -\sum_{i = 1}^{N} x_{i} y_{i} + \beta_{0} \sum_{i = 1}^{N}  x_{i} + \beta_{1} \sum_{i = 1}^{N} x_{i}^{2}
-\\
+\end{split}
+\]</span></p>
+<p>The solution for the intercept is substituted into the equation,</p>
+<p><span class="math display">\[
+\begin{split}
 \beta_{1} \sum_{i = 1}^{N} x_{i}^{2} = \sum_{i = 1}^{N} x_{i} y_{i} - (\bar{y} - \beta_{1} \bar{x}) \sum_{i = 1}^{N}  x_{i}
 \\
 \beta_{1} \sum_{i = 1}^{N} x_{i}^{2} - \beta_{1} \bar{x} \sum_{i = 1}^{N}  x_{i} = \sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}
 \\
-\beta_{1} (\sum_{i = 1}^{N} x_{i}^{2} - \bar{x} \sum_{i = 1}^{N}  x_{i}) = \sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}
-\\
-\beta_{1} = \frac{\sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}}{\sum_{i = 1}^{N} x_{i}^{2} - \bar{x} \sum_{i = 1}^{N}  x_{i}}
 \end{split}
+\]</span>
+resulting in the following solution for the slope coefficient:
+<span class="math display">\[
+\beta_{1} = \frac{\sum_{i = 1}^{N} x_{i} y_{i} - \bar{y} \sum_{i = 1}^{N}  x_{i}}{\sum_{i = 1}^{N} x_{i}^{2} - \bar{x} \sum_{i = 1}^{N}  x_{i}}
 \]</span></p>
 </div>
 <div id="multivariate-linear-regression" class="section level2">
@@ -207,7 +212,7 @@ y = X \beta + \epsilon
 \beta &amp;= (X&#39;X)^{-1}X&#39;y
 \end{split}
 \]</span></p>
-<p>The <code>LinearAlgebra</code> package makes it easy to manipulate vectors and matrices in Julia. Once the package is loaded, and the variables are defined, the next step is to create a function that takes two arguments, the response variable <span class="math inline">\(y\)</span> and the matrix <span class="math inline">\(X\)</span> of regressors with a vector of ones as the first column. The coefficients are calculated according to the least squares formula derived above.</p>
+<p>The <code>LinearAlgebra</code> package<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> The documentation of the package can be accessed <a href="https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/">here</a>.</span> makes it easy to manipulate vectors and matrices in Julia. Once the package is loaded, and the variables are defined, the next step is to create a function that takes two arguments, the response variable <span class="math inline">\(y\)</span> and the matrix <span class="math inline">\(X\)</span> of regressors with a vector of ones as the first column. The coefficients are calculated according to the least squares formula derived above.</p>
 <pre class="julia"><code>function lm(y::Vector, X::Matrix)
 
     beta = inv(X&#39;X)X&#39;y
@@ -219,7 +224,12 @@ X = \begin{bmatrix}
 1 &amp; x_{11} &amp; \dots &amp; x_{1p} \\ 1 &amp; x_{21} &amp; \dots &amp; x_{2p} \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 1 &amp; x_{n1} &amp; \dots &amp; x_{np}
 \end{bmatrix}
 \]</span></p>
-<p>It is common practice, however, to include an intercept in the regression. The significance of its coefficient will tell us whether it is useful to keep the intercept in the model.</p>
+<p>It is common practice, however, to include an intercept in the regression. The significance of its coefficient will tell us whether it is useful to keep the intercept in the model. The significance of a coefficient in a linear regression can be tested using a <strong>t-statistic</strong>. This test statistic has the following form:</p>
+<p><span class="math display">\[
+t_{\hat{\beta}} = \frac{\hat{\beta} - \beta}{\text{se}(\hat{\beta})} \qquad \text{where} \ H_{0}: \beta = 0
+\]</span></p>
+<p>The null hypothesis presented above is the standard approach in many statistical packages and simply tests for the significance of the coefficient in the model. This test can easily be extended to test for the significance of any (null) hypothesis.</p>
+<pre class="julia"><code>Tstat = (beta - 0) ./ betaSE</code></pre>
 <hr />
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-Magnus" class="csl-entry">
