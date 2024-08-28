@@ -12,7 +12,6 @@
 
 <meta name="author" content="Andre-Ignace Ghonda Lukoki" />
 
-<meta name="date" content="2024-06-01" />
 
 <title>A Linear Regression</title>
 
@@ -117,17 +116,13 @@ div.csl-indent {
 
 <h1 class="title toc-ignore">A Linear Regression</h1>
 <h4 class="author">Andre-Ignace Ghonda Lukoki</h4>
-<h4 class="date">June 1, 2024</h4>
+<h4 class="date">08-28-2024</h4>
 
 
 
 <div class="description">
-<p>The linear regression is the most fundamental technique used in Econometrics. Its popularity stems from the interpretability of its coefficients, and the numerous possibilities of extension. Regressions aim to predict the value of a continuous dependent variable based on a series of regressors. In this article, I summarize the knowledge I have acquired on linear regression analysis through university courses and self-study.</p>
+<p>The linear regression is the most fundamental technique used in Econometrics. Its popularity stems from the “interpretability” of its coefficients, and the numerous possibilities of extension. Regressions aim to predict the value of a continuous dependent variable based on a series of regressors. In this article, I summarize the knowledge I have acquired on linear regression analysis through university courses and self-study.</p>
 </div>
-<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">I find <a
-href="https://youtu.be/YIfANKRmEu4?si=RVnUKshFZ6eB_iYD">this video</a>
-by <strong>Mutual Information</strong> to be a nice introduction to
-linear regressions.</span></span></p>
 <p>Econometric modeling attempts to estimate the relationship between a set of independent variables or <strong>features</strong>, denoted by <span class="math inline">\(X = (X_{1}, X_{2}, \dots, X_{p })\)</span>, and a <strong>response</strong> variable <span class="math inline">\(y\)</span>. The parameters <span class="math inline">\(\beta_{p + 1}\)</span> limit the set of possible relationships to those that are linear. The econometrician chooses the features to include and the hypothesized functional form of the model for either inference or prediction purposes. The data is assumed to be the realization of an unobservable <em>data-generating process</em> (DGP) from which we know nothing but the probability distribution of its constituents.</p>
 <div id="simple-linear-regression" class="section level2">
 <h2>Simple Linear Regression</h2>
@@ -139,7 +134,7 @@ y_{i} = \beta_{0} + \beta_{1} x_{i} + \epsilon_{i} \qquad (i = 1, \dots, n)
 <p><span class="math display">\[
 RSS = \sum_{i = 1}^{N} e_{i}^{2} = \sum_{i = 1}^{N} (y_{i} - \beta_{0} - \beta_{1} x_{i})^{2}
 \]</span></p>
-<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">The Ordinary Least Squares method was developed in an era where
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">The Ordinary Least Squares method was developed in an era where
 computational methods were not powerful enough to minimize the least
 absolute deviations. The Least Squares method is also guaranteed to have
 at most one solution if the number of observations is greater than the
@@ -230,7 +225,7 @@ t_{\hat{\beta}} = \frac{\hat{\beta} - \beta}{\text{se}(\hat{\beta})} \qquad \tex
 \]</span></p>
 <p>The null hypothesis presented above is the standard approach in many statistical packages and simply tests for the significance of the coefficient in the model. This test can easily be extended to test for the significance of any (null) hypothesis.</p>
 <pre class="julia"><code>Tstat = (beta - 0) ./ betaSE</code></pre>
-<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">I will not present many of the derivations because I do not know or
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">I will not present many of the derivations because I do not know or
 understand them, yet. The formula for <span class="math inline"><span class="math inline">\(\text{Var}(\hat{\beta})\)</span></span> is taken from <a
 href="https://stats.stackexchange.com/questions/44838/how-are-the-standard-errors-of-coefficients-calculated-in-a-regression">Cross
 Validated</a>.</span></span></p>
@@ -267,8 +262,16 @@ function pt(T, df = 100)
    Pvalue = 1 - cdf(pdf, T)
    return Pvalue
 end</code></pre>
-<p>Once the <code>pt()</code>function is created, the significance of each coefficient is calculated by adding this next line to the original <code>lm()</code> function.</p>
+<p>Once the <code>pt()</code>function is created, the significance of each coefficient is calculated by adding this next line to the original <code>lm()</code> function. The null hypothesis <span class="math inline">\(H_{0}: \beta = 0\)</span> that no actual relationship exists between the dependent variable and the regressor of interest, and the lower the p-value, the more confidently we can reject this statement.</p>
 <pre class="julia"><code>pvalue = [pt(t, n - 1) for t in tstat]</code></pre>
+<p>Once all the aforementioned elements are defined, the function returns the vectors of coefficients, standard errors, t-statistics, and p-value in a dataframe. As an example, the output of a linear regression of two random variables looks as follows:</p>
+<pre class="julia"><code>2×4 DataFrame
+ Row │ beta     betaSE     tstat    pvalue  
+     │ Float64  Float64    Float64  Float64 
+─────┼──────────────────────────────────────
+   1 │ 4.9808   0.0642877  77.4767      0.0
+   2 │ 1.96143  0.0313061  62.6535      0.0`</code></pre>
+<p>The complete julia function can be found on <a href="https://github.com/andreghl/stats/blob/main/lm/lm.jl">GitHub</a>. The algorithm is, of course, much simpler than the actual <code>lm()</code> functions of <code>R</code>, <code>Python</code>, or <code>Julia</code>.</p>
 <hr />
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-Magnus" class="csl-entry">
