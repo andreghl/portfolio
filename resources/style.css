@@ -40,6 +40,11 @@
     font-style: italic;
 }
 
+.description code {
+    font-size: 12px;
+    font-style: normal;
+}
+
 a:hover {
     color: gray;
 }
