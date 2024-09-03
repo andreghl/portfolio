@@ -78,7 +78,7 @@ a:hover {
 }
 
 .title {
-    margin: 2%;
+    margin-top: 2%; 
 }
 
 @media only screen and (max-width: 960px) {
