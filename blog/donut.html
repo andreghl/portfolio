@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Andre-Ignace Ghonda Lukoki" />
+
+
+<title>A Donut in the Terminal</title>
+
+<script src="lib/header-attrs-2.26/header-attrs.js"></script>
+<link href="lib/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="lib/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="lib/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="lib/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<link href="lib/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="lib/highlightjs-9.12.0/highlight.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Economics student interested in Econometrics, Statistics, Actuarial sciences,  
+      Programming and Economic research."
+    />
+    <meta
+      name="keywords"
+      content="OLS, Linear Regression, Econometrics, Regression,
+      Statistics, Julia, Ordinary Least Squares, Proof, Mathematics, Matrix"
+    />
+    <meta name="author" content="Andre-Ignace Ghonda Lukoki" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+      window.si =
+        window.si ||
+        function () {
+          (window.siq = window.siq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <link rel="shortcut icon" href="../assets/logo.svg" />
+  </head>
+
+  <body>
+    <span id="top"
+      ><img src="../assets/back.svg" /><a href="../index.html">
+        Go Back
+      </a></span
+    >
+  </body>
+</html>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="../resources/style.css" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">A Donut in the Terminal</h1>
+<h4 class="author">Andre-Ignace Ghonda Lukoki</h4>
+<h4 class="date">09-02-2024</h4>
+
+
+
+<div class="description">
+<p>This project is inspired by the work of Andy Sloane and relies heavily on the code written by Robert Moss. I translated his code from <code>Julia</code> to <code>R</code>.</p>
+</div>
+<p>I have recently seen donuts written is <code>C</code>, <code>Python</code>, <code>JavaScript</code>, and <code>Julia</code>. This made me wondered if <code>R</code>, a statistical programming language, could also be used to render such graphics. The answer seems to be yes! The code relies heavily on the <code>cat()</code> function to set the behavior of the donut in the terminal due to its ability to read what seems to be some standard notation format.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> It seems to be called ANSI code.</span></p>
+<p>After downloading the code from <a href="https://github.com/andreghl/donut">GitHub</a>, the donut can <strong>only</strong> be rendered by opening a terminal and requires <code>Rscript</code> to be a PATH variable.<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> At least on Windows 11. On other operating systems, make sure that can be called from the terminal by running: <code>Rscript --version</code>.</span> Below is a short animation of the script running on my computer.</p>
+<div class="fullwidth">
+<div class="float">
+<img src="../assets/donut.gif" alt="A Rotating Donut" />
+<div class="figcaption">A Rotating Donut</div>
+</div>
+</div>
+<hr />
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
+<div id="ref-Moss" class="csl-entry">
+Moss, R. (2021). <em>Donut.jl</em>. <a href="https://github.com/mossr/Donut.jl">https://github.com/mossr/Donut.jl</a>
+</div>
+<div id="ref-Sloane" class="csl-entry">
+Sloane, A. (2006). <em>Have a donut</em>. <a href="https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html">https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html</a>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
